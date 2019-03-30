@@ -65,6 +65,7 @@
             android:weightSum="2">
 
             <android.support.v7.widget.CardView
+                android:id="@+id/viewAllItemCard"
                 android:layout_width="165dp"
                 android:layout_height="170dp"
                 android:layout_weight="1"
@@ -83,6 +84,7 @@
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
+                android:id="@+id/viewAvailableItemCard"
                 android:layout_width="165dp"
                 android:layout_height="170dp"
                 android:layout_weight="1"
@@ -109,6 +111,7 @@
             android:weightSum="2">
 
             <android.support.v7.widget.CardView
+                android:id="@+id/searchItemCard"
                 android:layout_width="165dp"
                 android:layout_height="170dp"
                 android:layout_weight="1"

@@ -6,39 +6,62 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 import com.ksg.easykitchen.adapters.EditListAdapter;
+import com.ksg.easykitchen.adapters.ViewListAdapter;
 import com.ksg.easykitchen.dbConnection.DatabaseHelper;
 import com.ksg.easykitchen.model.Products;
 
 import java.util.ArrayList;
 
-public class EditActivity extends AppCompatActivity {
+public class ViewAll extends AppCompatActivity {
 
-    private RecyclerView recyclerView;
     private DatabaseHelper databaseHelper;
     private ArrayList<Products> productsArrayList;
+    private RecyclerView recyclerViewAll;
+    private Button save_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit);
-
+        setContentView(R.layout.activity_view_all);
         databaseHelper = new DatabaseHelper(this);
-        getSupportActionBar().setTitle("Edit Data");
+        getSupportActionBar().setTitle("All Products");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-
 
         productsArrayList = new ArrayList<>();
         getAllDataList();
 
-        recyclerView = findViewById(R.id.recyclerView);
-        EditListAdapter adapter = new EditListAdapter(productsArrayList);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(adapter);
-        adapter.notifyDataSetChanged();
+        recyclerViewAll = findViewById(R.id.recyclerViewAll);
+        ViewListAdapter adapter = new ViewListAdapter(productsArrayList);
+        recyclerViewAll.setHasFixedSize(true);
+        recyclerViewAll.setLayoutManager(new LinearLayoutManager(this));
+        recyclerViewAll.setAdapter(adapter);
+        save_btn = findViewById(R.id.save_btn);
+
+        save_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                for(Products product : productsArrayList ){
+                    databaseHelper.updateProduct(product);
+                    Toast.makeText(ViewAll.this, "Updated Successfully!", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void getAllDataList(){
@@ -56,11 +79,5 @@ public class EditActivity extends AppCompatActivity {
         }
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
-            finish();
-        }
-        return super.onOptionsItemSelected(item);
-    }
+
 }

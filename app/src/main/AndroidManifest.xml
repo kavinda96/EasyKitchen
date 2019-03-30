@@ -9,7 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".EditData"></activity>
+        <activity android:name=".ViewItem"></activity>
+        <activity
+            android:name=".SearchActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity android:name=".ViewAvailable" />
+        <activity android:name=".ViewAll" />
+        <activity android:name=".EditData" />
         <activity android:name=".EditActivity" />
         <activity android:name=".AddProducts" />
         <activity android:name=".Home" />

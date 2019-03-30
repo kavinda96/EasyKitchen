@@ -11,6 +11,9 @@ public class Products implements Serializable {
     double weight;
     int isAvailable;
 
+    public Products() {
+    }
+
     public Products(int id, String product, String description, double price, double weight, int isAvailable) {
         this.id = id;
         this.product = product;
