@@ -4,69 +4,149 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
     tools:context=".Home">
 
-    <Button
-        android:id="@+id/btnAddProducts"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/button_background"
-        android:backgroundTint="@color/colorAccent1"
-        android:clickable="true"
-        android:foreground="?attr/selectableItemBackgroundBorderless"
-        android:text="Add Products"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.207" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btnDisplayAll"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/button_background"
-        android:backgroundTint="@color/colorAccent1"
-        android:clickable="true"
-        android:foreground="?attr/selectableItemBackgroundBorderless"
-        android:text="Display All Products"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnAddProducts"
-        app:layout_constraintVertical_bias="0.086" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
 
-    <Button
-        android:id="@+id/btnDisplayAvailable"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/button_background"
-        android:backgroundTint="@color/colorAccent1"
-        android:clickable="true"
-        android:foreground="?attr/selectableItemBackgroundBorderless"
-        android:text="Kitchen's Products"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnDisplayAll"
-        app:layout_constraintVertical_bias="0.104" />
+            <android.support.v7.widget.CardView
+                android:id="@+id/addItemCard"
+                android:layout_width="165dp"
+                android:layout_height="170dp"
+                app:cardCornerRadius="10dp"
+                android:layout_weight="1"
+                android:layout_margin="10dp"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:clickable="true">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:text="Add"/>
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/editItemCard"
+                android:layout_width="165dp"
+                android:layout_height="170dp"
+                app:cardCornerRadius="10dp"
+                android:layout_weight="1"
+                android:layout_margin="10dp"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:clickable="true">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:text="Edit"/>
+
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <android.support.v7.widget.CardView
+                android:layout_width="165dp"
+                android:layout_height="170dp"
+                android:layout_weight="1"
+                app:cardCornerRadius="10dp"
+                android:layout_margin="10dp"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:clickable="true">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:text="View All"/>
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="165dp"
+                android:layout_height="170dp"
+                android:layout_weight="1"
+                app:cardCornerRadius="10dp"
+                android:layout_margin="10dp"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:clickable="true">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:text="View Available"/>
+
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <android.support.v7.widget.CardView
+                android:layout_width="165dp"
+                android:layout_height="170dp"
+                android:layout_weight="1"
+                app:cardCornerRadius="10dp"
+                android:layout_margin="10dp"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:clickable="true">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:text="Search"/>
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="165dp"
+                android:layout_height="170dp"
+                android:layout_weight="1"
+                app:cardCornerRadius="10dp"
+                android:layout_margin="10dp"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:clickable="true">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:text="Recipes"/>
+
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
 
 
-
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

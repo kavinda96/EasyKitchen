@@ -9,9 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AddProducts"></activity>
+        <activity android:name=".EditData"></activity>
+        <activity android:name=".EditActivity" />
+        <activity android:name=".AddProducts" />
         <activity android:name=".Home" />
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".SplashScreen"
+            android:theme="@style/AppThemeTwo">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

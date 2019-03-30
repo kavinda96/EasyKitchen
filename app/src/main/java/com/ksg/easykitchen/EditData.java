@@ -3,16 +3,16 @@ package com.ksg.easykitchen;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 
-public class AddProducts extends AppCompatActivity {
+public class EditData extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_products);
-        getSupportActionBar().setTitle("Add Data");
+        setContentView(R.layout.activity_edit_data);
+
+        String itemName= getIntent().getStringExtra("ITEM_NAME");
+        getSupportActionBar().setTitle("Edit " + itemName);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
     }
