@@ -67,6 +67,7 @@ public class Home extends AppCompatActivity{
             public void onClick(View v) {
                 final Intent x =new Intent(Home.this, RecipesActivity.class);
                 startActivity(x);
+                finish();
             }
         });
 

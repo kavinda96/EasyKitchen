@@ -54,7 +54,7 @@
                         android:background="@drawable/button_background"
                         android:foreground="?android:attr/selectableItemBackground"
                         android:text="LOOKUP"
-                        android:textSize="18sp"
+                        android:textSize="14sp"
                         android:backgroundTint="@color/colorAccent1"/>
 
                 </LinearLayout>

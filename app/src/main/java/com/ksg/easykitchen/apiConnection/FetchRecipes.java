@@ -6,9 +6,6 @@ import android.os.AsyncTask;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.widget.Toast;
-
-import com.ksg.easykitchen.ShowRecipes;
 import com.ksg.easykitchen.adapters.RecipeListAdapter;
 import com.ksg.easykitchen.model.Recipe;
 
@@ -54,7 +51,7 @@ public class FetchRecipes extends AsyncTask<Void, Void, ArrayList<Recipe>> {
                 for(int i = 0; i < itemCount; i++){
                     JSONObject book = itemsArray.getJSONObject(i);
                     String recipeTitle = book.getString("title");
-                    String recipeUrl = book.getString("source_url");
+                    String recipeUrl = book.getString("f2f_url");
                     String recipeImage = book.getString("image_url");
                     Log.d("Fetch", recipeTitle);
 
