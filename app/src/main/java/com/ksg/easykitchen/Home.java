@@ -8,7 +8,7 @@ import android.view.View;
 
 public class Home extends AppCompatActivity{
 
-    CardView add, edit, viewAllItemCard, viewAvailableItemCard, searchItemCard;
+    CardView add, edit, viewAllItemCard, viewAvailableItemCard, searchItemCard, recipeCard;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +20,7 @@ public class Home extends AppCompatActivity{
         viewAllItemCard = findViewById(R.id.viewAllItemCard);
         viewAvailableItemCard = findViewById(R.id.viewAvailableItemCard);
         searchItemCard = findViewById(R.id.searchItemCard);
+        recipeCard = findViewById(R.id.recipeCard);
 
         add.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,6 +58,14 @@ public class Home extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 final Intent x =new Intent(Home.this, SearchActivity.class);
+                startActivity(x);
+            }
+        });
+
+        recipeCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Intent x =new Intent(Home.this, RecipesActivity.class);
                 startActivity(x);
             }
         });

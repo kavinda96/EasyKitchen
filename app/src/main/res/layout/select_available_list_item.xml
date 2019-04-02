@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:background="@color/colorPrimaryDark"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="3dp"
+        android:weightSum="1"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:background="@color/colorPrimaryDark"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.90"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/productName"
+                android:layout_marginLeft="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:text="Title"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginTop="7dp"/>
+            <TextView
+                android:id="@+id/productPrice"
+                android:layout_marginLeft="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:text="Price"
+                android:textSize="16sp"
+                android:layout_marginTop="5dp"/>
+
+            <TextView
+                android:id="@+id/productWeight"
+                android:layout_marginLeft="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:text="Weight"
+                android:textSize="14sp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="5dp"/>
+
+        </LinearLayout>
+
+        <CheckBox
+            android:id="@+id/checkIsAvailable"
+            android:layout_weight="0.10"
+            android:layout_width="0dp"
+            android:buttonTint="@color/colorAccent1"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:background="@color/colorPrimary"/>
+
+
+
+</LinearLayout>

@@ -24,6 +24,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME="kitchen_products.db";
     private static final int DATABASE_VERSION=1;
 
+    private static final String RECIPE_TABLE_NAME="recipe";
+    public static final String RECIPE_NAME="RECIPE_NAME";
+    public static final String RECIPE_URL="RECIPE_URL";
+    public static final String RECIPE_IMAGE_URL="RECIPE_IMAGE_URL";
+
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME,null , DATABASE_VERSION);
     }
@@ -39,11 +44,19 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + WEIGHT + " INTEGER , "
                 + PRICE + " INTEGER , "
                 + IS_AVAILABLE + " INTEGER NOT NULL ) ; " );
+
+        db.execSQL("CREATE TABLE " + RECIPE_TABLE_NAME + "("
+                + _ID
+                + " INTEGER PRIMARY KEY AUTOINCREMENT , "
+                + RECIPE_NAME + " TEXT NOT NULL , "
+                + RECIPE_URL + " TEXT NOT NULL , "
+                + RECIPE_IMAGE_URL + " TEXT NOT NULL ) ;" );
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + RECIPE_TABLE_NAME);
         onCreate(db);
     }
 
@@ -63,6 +76,28 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return false;
         else
             return true;
+    }
+
+    public boolean insertDataToRecipe(String recipe_name,String recipe_url,String recipe_img_url) { //insert data into the table
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(RECIPE_NAME,recipe_name);
+        contentValues.put(RECIPE_URL,recipe_url);
+        contentValues.put(RECIPE_IMAGE_URL,recipe_img_url);
+        long result = db.insert(RECIPE_TABLE_NAME,null ,contentValues);
+        /*
+         * if having an error when inserting data
+         * */
+        if(result == -1)
+            return false;
+        else
+            return true;
+    }
+
+    public Cursor getAllRecipes(){
+        String qryString = "Select * From "+RECIPE_TABLE_NAME+" Order By "+RECIPE_NAME;
+        SQLiteDatabase sqlDb = this.getWritableDatabase();
+        return sqlDb.rawQuery(qryString,null);
     }
 
     public Cursor getAllProducts(){
