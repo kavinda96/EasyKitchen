@@ -16,6 +16,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
 import com.ksg.easykitchen.R;
 import com.ksg.easykitchen.model.Recipe;
 
@@ -46,7 +48,11 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Vi
     public void onBindViewHolder(@NonNull RecipeListAdapter.ViewHolder viewHolder, int i) {
         final Recipe product = recipeArrayList.get(i);
         viewHolder.productName.setText(product.getName());
-        new DownloadImageTask(viewHolder.imageView).execute(product.getImgUrl());
+//        new DownloadImageTask(viewHolder.imageView).execute(product.getImgUrl());
+
+        Glide.with(viewHolder.imageView.getContext())
+                .load(product.getImgUrl())
+                .into(viewHolder.imageView);
 
         viewHolder.clickLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,32 +81,32 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Vi
         }
     }
 
-    private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
-        ImageView bmImage;
-
-        public DownloadImageTask(ImageView bmImage) {
-            this.bmImage = bmImage;
-        }
-
-        protected Bitmap doInBackground(String... urls) {
-            String urldisplay = urls[0];
-            Log.e("Error", urldisplay);
-            Bitmap mIcon11 = null;
-            URL url = null;
-            try {
-                url = new URL(urldisplay);
-                mIcon11 = BitmapFactory.decodeStream(url.openConnection().getInputStream());
-            } catch (Exception e) {
-                Log.e("Error", e.getMessage());
-                e.printStackTrace();
-            }
-            return mIcon11;
-        }
-
-        protected void onPostExecute(Bitmap result) {
-            bmImage.setImageBitmap(result);
-        }
-    }
+//    private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
+//        ImageView bmImage;
+//
+//        public DownloadImageTask(ImageView bmImage) {
+//            this.bmImage = bmImage;
+//        }
+//
+//        protected Bitmap doInBackground(String... urls) {
+//            String urldisplay = urls[0];
+//            Log.e("Error", urldisplay);
+//            Bitmap mIcon11 = null;
+//            URL url = null;
+//            try {
+//                url = new URL(urldisplay);
+//                mIcon11 = BitmapFactory.decodeStream(url.openConnection().getInputStream());
+//            } catch (Exception e) {
+//                Log.e("Error", e.getMessage());
+//                e.printStackTrace();
+//            }
+//            return mIcon11;
+//        }
+//
+//        protected void onPostExecute(Bitmap result) {
+//            bmImage.setImageBitmap(result);
+//        }
+//    }
 }
 
 
