@@ -10,7 +10,7 @@
         android:background="@color/colorPrimaryDark"
         android:foreground="?android:attr/selectableItemBackground"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="80dp"
         android:layout_marginBottom="3dp"
         android:weightSum="1"
         android:orientation="horizontal">
@@ -43,30 +43,14 @@
                 android:layout_marginLeft="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/white"
+                android:textColor="@color/lightBlue"
                 android:text="Title"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:layout_marginTop="7dp"
                 android:layout_marginBottom="7dp"/>
 
-            <TextView
-                android:layout_marginLeft="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:layout_marginBottom="7dp"/>
 
-            <TextView
-                android:layout_marginLeft="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:layout_marginBottom="7dp"/>
 
         </LinearLayout>
 

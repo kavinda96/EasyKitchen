@@ -37,6 +37,7 @@ public class ViewAll extends AppCompatActivity {
         getAllDataList();
 
         recyclerViewAll = findViewById(R.id.recyclerViewAll);
+
         ViewListAdapter adapter = new ViewListAdapter(productsArrayList);
         recyclerViewAll.setHasFixedSize(true);
         recyclerViewAll.setLayoutManager(new LinearLayoutManager(this));

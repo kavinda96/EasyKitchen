@@ -1,6 +1,9 @@
 package com.ksg.easykitchen;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -14,12 +17,14 @@ import android.widget.Toast;
 import com.ksg.easykitchen.dbConnection.DatabaseHelper;
 import com.ksg.easykitchen.model.Products;
 
+import static com.ksg.easykitchen.dbConnection.DBConstants.TABLE_NAME;
+
 public class EditData extends AppCompatActivity {
 
     private EditText editName, editWeight, editPrice, editDescription;
     private CheckBox checkIsAvailable;
     private Products product;
-    private Button updateBtn;
+    private Button updateBtn,deleteBtn;
     private DatabaseHelper databaseHelper;
 
     @Override
@@ -39,6 +44,7 @@ public class EditData extends AppCompatActivity {
         editDescription = findViewById(R.id.editDescription);
         checkIsAvailable = findViewById(R.id.checkIsAvailable);
         updateBtn = findViewById(R.id.updateBtn);
+        deleteBtn = findViewById(R.id.deleteBtn);
 
         editName.setText(product.getProduct());
         editDescription.setText(product.getDescription());
@@ -56,6 +62,41 @@ public class EditData extends AppCompatActivity {
                 updateProductDetails();
             }
         });
+
+        deleteBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+
+            public void onClick(View v) {
+            AlertDialog alertDialog = new AlertDialog.Builder(EditData.this).create();
+            alertDialog.setTitle("Delete Product!");
+            alertDialog.setMessage("Are you sure to delete this product? ");
+            alertDialog.setCanceledOnTouchOutside(false);
+            alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                    new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    delete();
+                    final Intent x = new Intent(EditData.this, EditActivity.class);
+                    startActivity(x);
+                    finish();
+                }
+            });
+                alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "CANCEL",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                             //   delete();
+                                final Intent x = new Intent(EditData.this, EditActivity.class);
+                                startActivity(x);
+                                finish();
+                            }
+                        });
+
+            alertDialog.show();
+            alertDialog.getButton(AlertDialog.BUTTON_NEUTRAL).setTextColor(getResources().getColor(R.color.green));
+                alertDialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(getResources().getColor(R.color.colorAccent1));
+
+
+            }
+        });
     }
 
     @Override
@@ -63,6 +104,7 @@ public class EditData extends AppCompatActivity {
         super.onBackPressed();
         final Intent x =new Intent(EditData.this, EditActivity.class);
         startActivity(x);
+        finish();
     }
 
     @Override
@@ -130,5 +172,17 @@ public class EditData extends AppCompatActivity {
             databaseHelper.updateProduct(product);
             Toast.makeText(this, "Data updated successfully!", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    public void delete() {
+
+        SQLiteDatabase database=databaseHelper.getWritableDatabase();
+        database.delete(TABLE_NAME,"_id="+String.valueOf(product.getId()),null);
+        Intent intent = new Intent(this, EditActivity.class);
+        //intent.putExtra("go back","Reload main class");
+        startActivity(intent);
+        Toast toast=Toast.makeText(this,"Deleted",Toast.LENGTH_SHORT);
+        toast.show();
+
     }
 }

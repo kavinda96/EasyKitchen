@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:background="@color/colorPrimary"
     android:layout_height="match_parent"
-    tools:context=".EditData">
+    tools:context=".ViewItem">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -38,13 +38,12 @@
                     android:textColor="@color/colorAccent"
                     android:textSize="18sp" />
 
-                <EditText
-                    android:id="@+id/editName"
+                <TextView
+                    android:id="@+id/prodName"
                     android:layout_width="0dp"
-                    android:maxLines="1"
+                    android:textSize="18sp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1.25"
-                    android:textColor="@color/white"/>
+                    android:layout_weight="1.25" />
 
             </LinearLayout>
 
@@ -73,13 +72,11 @@
                     android:textColor="@color/colorAccent"
                     android:textSize="18sp" />
 
-                <EditText
-                    android:id="@+id/editWeight"
+                <TextView
+                    android:id="@+id/prodWeight"
                     android:layout_width="0dp"
+                    android:textSize="18sp"
                     android:layout_height="wrap_content"
-                    android:inputType="numberDecimal"
-                    android:maxLines="1"
-                    android:textColor="@color/white"
                     android:layout_weight="1.25" />
 
             </LinearLayout>
@@ -109,13 +106,12 @@
                     android:textColor="@color/colorAccent"
                     android:textSize="18sp" />
 
-                <EditText
-                    android:id="@+id/editPrice"
+                <TextView
+                    android:id="@+id/prodPrice"
                     android:layout_width="0dp"
-                    android:inputType="numberDecimal"
+                    android:textSize="18sp"
                     android:maxLines="1"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/white"
                     android:layout_weight="1.25" />
 
             </LinearLayout>
@@ -145,12 +141,12 @@
                     android:textColor="@color/colorAccent"
                     android:textSize="18sp" />
 
-                <EditText
-                    android:id="@+id/editDescription"
+                <TextView
+                    android:id="@+id/prodDescription"
                     android:layout_width="0dp"
-                    android:maxLines="5"
+                    android:textSize="18sp"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/white"
+                    android:maxLines="4"
                     android:layout_weight="1.25" />
 
             </LinearLayout>
@@ -181,7 +177,8 @@
                     android:textSize="18sp" />
 
                 <CheckBox
-                    android:id="@+id/checkIsAvailable"
+                    android:theme="@style/MyCheckBox"
+                    android:id="@+id/prodIsAvailable"
                     android:layout_width="0dp"
                     android:layout_weight="0.20"
                     android:layout_height="wrap_content"/>
@@ -190,46 +187,7 @@
             </LinearLayout>
 
         </android.support.v7.widget.CardView>
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:weightSum="1">
-
-    <Button
-        android:id="@+id/updateBtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"
-        android:background="@drawable/button_background"
-        android:foreground="?android:attr/selectableItemBackground"
-        android:text="UPDATE"
-        android:textSize="18sp"
-        android:backgroundTint="@color/green"
-        android:layout_weight="0.3"
-        />
-        <Button
-            android:id="@+id/deleteBtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:background="@drawable/button_background"
-            android:foreground="?android:attr/selectableItemBackground"
-            android:text="DELETE"
-            android:textSize="18sp"
-            android:backgroundTint="@color/redColor"
-            android:layout_weight="0.7"/>
-
-
-
-</LinearLayout>
 
     </LinearLayout>
-
     </ScrollView>
-
 </android.support.constraint.ConstraintLayout>
