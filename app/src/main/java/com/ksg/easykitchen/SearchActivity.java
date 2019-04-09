@@ -43,11 +43,11 @@ public class SearchActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(!searchText.getText().toString().equals("")){
                     productsArrayList = databaseHelper.getSearchedItems(searchText.getText().toString());
-
+                   //passing retrived searched result arraylist to the adapter
                     SearchListAdapter adapter = new SearchListAdapter(productsArrayList);
                     recyclerViewSearch.setHasFixedSize(true);
                     recyclerViewSearch.setLayoutManager(new LinearLayoutManager(v.getContext()));
-                    recyclerViewSearch.setAdapter(adapter);
+                    recyclerViewSearch.setAdapter(adapter);//passing adapter to the recycler view
 
                 }else{
                     if(TextUtils.isEmpty(searchText.getText().toString())) {
@@ -58,6 +58,7 @@ public class SearchActivity extends AppCompatActivity {
         });
     }
 
+    /*User navigate to the home when he press the top back button*/
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {

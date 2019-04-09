@@ -12,7 +12,7 @@ import java.net.URL;
 
 public class NetworkUtils {
     private static final String LOG_TAG = NetworkUtils.class.getSimpleName();
-    // Base URL for Books API.
+    // Base URL for food API.
     private static final String BOOK_BASE_URL = "https://www.food2fork.com/api/search?";
     //Parameter for user key
     private static final String KEY= "key";

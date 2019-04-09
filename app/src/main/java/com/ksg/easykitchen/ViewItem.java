@@ -31,7 +31,7 @@ public class ViewItem extends AppCompatActivity {
         prodDescription = findViewById(R.id.prodDescription);
         prodIsAvailable = findViewById(R.id.prodIsAvailable);
 
-        if(product.getIsAvailable() == 1){
+        if(product.getIsAvailable() == 1){ //check the value is 1 0r 0 and according to that check and uncheck status will behave
             prodIsAvailable.setChecked(true);
             prodIsAvailable.setEnabled(false);
         }else{

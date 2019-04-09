@@ -35,7 +35,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-
+        //create the db table "products"
         db.execSQL("CREATE TABLE " + TABLE_NAME + "("
                 + _ID
                 + " INTEGER PRIMARY KEY AUTOINCREMENT , "
@@ -60,7 +60,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean insertData(String all_product_name,String description,double weight, double price, int is_available) { //insert data into the table
+    public boolean insertData(String all_product_name,String description,double weight, double price, int is_available) {
+        //insert data into the table
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(PRODUCT_NAME,all_product_name);
@@ -101,18 +102,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     public Cursor getAllProducts(){
+        //get all the products from the data base table
         String qryString = "Select * From "+TABLE_NAME+" Order By "+PRODUCT_NAME;
         SQLiteDatabase sqlDb = this.getWritableDatabase();
         return sqlDb.rawQuery(qryString,null);
     }
 
     public Cursor getAvailableProducts(){
+        //retrieve only the available product by checking is available is o or 0(here take only 1 values)
         String qryString = "Select * From "+TABLE_NAME+" Where "+IS_AVAILABLE+"=1";
         SQLiteDatabase sqlDb = this.getWritableDatabase();
         return sqlDb.rawQuery(qryString,null);
     }
 
     public ArrayList<Products> getSearchedItems(String searchString){
+        //retrieve searched products according to the search string , and here checking both name an description
         ArrayList<Products> productsArrayList = new ArrayList<>();
 
         String qryString = "SELECT * FROM " +TABLE_NAME+ " WHERE " +PRODUCT_NAME+ " like \"%" + searchString + "%\" UNION " +
@@ -134,6 +138,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     public int updateProduct(Products products) {
+        //update the products on a edit action is performed by user
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();

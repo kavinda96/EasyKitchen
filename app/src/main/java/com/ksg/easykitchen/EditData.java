@@ -75,8 +75,8 @@ public class EditData extends AppCompatActivity {
                     new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
                     delete();
-                    final Intent x = new Intent(EditData.this, EditActivity.class);
-                    startActivity(x);
+                   /* final Intent x = new Intent(EditData.this, EditActivity.class);
+                    startActivity(x);*/
                     finish();
                 }
             });
@@ -84,9 +84,9 @@ public class EditData extends AppCompatActivity {
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
                              //   delete();
-                                final Intent x = new Intent(EditData.this, EditActivity.class);
-                                startActivity(x);
-                                finish();
+                                //final Intent x = new Intent(EditData.this, EditActivity.class);
+                                //startActivity(x);
+                               // finish();
                             }
                         });
 
@@ -174,7 +174,7 @@ public class EditData extends AppCompatActivity {
         }
     }
 
-    public void delete() {
+    public void delete() {//delete a product item
 
         SQLiteDatabase database=databaseHelper.getWritableDatabase();
         database.delete(TABLE_NAME,"_id="+String.valueOf(product.getId()),null);

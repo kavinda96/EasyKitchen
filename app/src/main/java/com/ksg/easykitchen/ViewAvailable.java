@@ -61,6 +61,8 @@ public class ViewAvailable extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+
+    /*Get All the product from the sqlite database  and intialize cursor object*/
     private void getAllDataList(){
         Cursor cursor = databaseHelper.getAvailableProducts();
 

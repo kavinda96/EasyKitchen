@@ -22,6 +22,7 @@ public class FetchRecipes extends AsyncTask<Void, Void, ArrayList<Recipe>> {
     private RecyclerView recyclerView;
     private RecipeListAdapter recipeListAdapter;
     private String searchText;
+  //  private int itemCount;
 
     public FetchRecipes(Context context, RecyclerView recyclerView, String searchText) {
         this.recyclerView = recyclerView;
@@ -38,6 +39,7 @@ public class FetchRecipes extends AsyncTask<Void, Void, ArrayList<Recipe>> {
         recipeArrayList = new ArrayList<>();
         String jsonObj = NetworkUtils.getRecipeInfo(searchText);
         try {
+
             int itemCount;
             String title;
             String image_url;

@@ -108,11 +108,11 @@ public class RecipesActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+       // super.onBackPressed();
         final Intent x =new Intent(RecipesActivity.this, Home.class);
         startActivity(x);
         finish();
     }
-
     private void getAllDataList(){
         Cursor cursor = databaseHelper.getAvailableProducts();
 
@@ -124,6 +124,9 @@ public class RecipesActivity extends AppCompatActivity {
             products.setWeight(cursor.getDouble(3));
             products.setPrice(cursor.getDouble(4));
             products.setIsAvailable(cursor.getInt(5));
+
+            /* Assign the iterated cursor values that are assigned to the products
+            object to the arraylist*/
             productsArrayList.add(products);
         }
     }

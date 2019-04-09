@@ -18,6 +18,7 @@ import com.ksg.easykitchen.model.Products;
 import java.util.ArrayList;
 
 public class ViewAll extends AppCompatActivity {
+    //declaring variables
 
     private DatabaseHelper databaseHelper;
     private ArrayList<Products> productsArrayList;
@@ -66,9 +67,11 @@ public class ViewAll extends AppCompatActivity {
     }
 
     private void getAllDataList(){
+        /*Get All the product from the sqlite database  and intialize cursor object*/
         Cursor cursor = databaseHelper.getAllProducts();
 
         while (cursor.moveToNext()) {
+            //creating products object
             Products products = new Products();
             products.setId(cursor.getInt(0));
             products.setProduct(cursor.getString(1));
@@ -76,6 +79,9 @@ public class ViewAll extends AppCompatActivity {
             products.setWeight(cursor.getDouble(3));
             products.setPrice(cursor.getDouble(4));
             products.setIsAvailable(cursor.getInt(5));
+
+            /* Assign the iterated cursor values that are assigned to the products
+            object to the arraylist*/
             productsArrayList.add(products);
         }
     }

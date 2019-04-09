@@ -15,7 +15,7 @@ import com.ksg.easykitchen.model.Products;
 import java.util.ArrayList;
 
 public class EditActivity extends AppCompatActivity {
-
+    /*Declaring instance variables*/
     private RecyclerView recyclerView;
     private DatabaseHelper databaseHelper;
     private ArrayList<Products> productsArrayList;
@@ -34,9 +34,9 @@ public class EditActivity extends AppCompatActivity {
         productsArrayList = new ArrayList<>();
 
         getAllDataList();
-
+// initializing variables
         recyclerView = findViewById(R.id.recyclerView);
-        EditListAdapter adapter = new EditListAdapter(productsArrayList);
+        EditListAdapter adapter = new EditListAdapter(productsArrayList);//passing populated arraylist as argument to the adapter
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
@@ -44,22 +44,30 @@ public class EditActivity extends AppCompatActivity {
     }
 
     private void getAllDataList(){
+        /*Get All the product from the sqlite database  and intialize cursor object*/
         Cursor cursor = databaseHelper.getAllProducts();
-
+        /*Iterate the cursor object until it is null*/
         while (cursor.moveToNext()) {
+            //creating products object
             Products products = new Products();
+
+            //Setting values through setters to the products object
             products.setId(cursor.getInt(0));
             products.setProduct(cursor.getString(1));
             products.setDescription(cursor.getString(2));
             products.setWeight(cursor.getDouble(3));
             products.setPrice(cursor.getDouble(4));
             products.setIsAvailable(cursor.getInt(5));
+
+            /* Assign the iterated cursor values that are assigned to the products
+            object to the arraylist*/
             productsArrayList.add(products);
+
         }
     }
 
 
-    @Override
+   /* @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
             super.onBackPressed();
@@ -68,14 +76,32 @@ public class EditActivity extends AppCompatActivity {
             finish();
         }
         return super.onOptionsItemSelected(item);
+    }*/
+
+/*User navigate to the home when he press the top back button*/
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+        }
+        return super.onOptionsItemSelected(item);
     }
 
+   /* @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+        }
+        return super.onOptionsItemSelected(item);
+    }*/
 
-    @Override
+
+
+/*    @Override
     public void onBackPressed() {
-        super.onBackPressed();
+       *//* //super.onBackPressed();
         final Intent x =new Intent(EditActivity.this, Home.class);
         startActivity(x);
-        finish();
-    }
+        finish();*//*
+    }*/
 }

@@ -14,6 +14,7 @@ import com.ksg.easykitchen.dbConnection.DatabaseHelper;
 
 public class AddProducts extends AppCompatActivity {
 
+/*Declaring instance variables*/
     private EditText product_name,product_weight,product_price,product_description;
     private Button saveButton;
     private DatabaseHelper databaseHelper;
@@ -25,7 +26,7 @@ public class AddProducts extends AppCompatActivity {
         getSupportActionBar().setTitle("Add Data");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-
+// initializing variables
         databaseHelper = new DatabaseHelper(this);
         product_name = findViewById(R.id.product_name);
         product_weight = findViewById(R.id.product_weight);
@@ -34,6 +35,7 @@ public class AddProducts extends AppCompatActivity {
         saveButton = findViewById(R.id.saveButton);
 
         saveButton.setOnClickListener(new View.OnClickListener() {
+            //set on click listner to Save button
             @Override
             public void onClick(View v) {
                 saveProductsToDb();
@@ -50,10 +52,12 @@ public class AddProducts extends AppCompatActivity {
     }
 
     public void saveProductsToDb(){
-        String pName = null, pDescription = null;
+        String pName = null, pDescription = null; // declaring and initializing method variables
         double pWeight = 0, pPrice = 0;
 
+        /*Validating product name, description,weight and price from user input,cant be empty*/
         if(!product_name.getText().toString().equals("")){
+            //reassigning values from user input to p variables(method variables)
             pName = product_name.getText().toString().toUpperCase();
         }else{
             if(TextUtils.isEmpty(product_name.getText().toString())) {
@@ -90,10 +94,15 @@ public class AddProducts extends AppCompatActivity {
         }
 
         if(!pName.equals("") && !pDescription.equals("") && pWeight != 0 && pPrice != 0){
+            /*When the user click save button all the input fields become empty and the values user entered will save to
+            * sqlite DB*/
             product_name.setText("");
             product_description.setText("");
             product_weight.setText("");
             product_price.setText("");
+
+            /*Invoking insert data method from databasehelper class and passing method variables as arguments and
+            * availability is set to Zero by default*/
             databaseHelper.insertData(pName,pDescription,pWeight,pPrice,0);
             Toast.makeText(this, "Data added successfully!", Toast.LENGTH_SHORT).show();
         }
