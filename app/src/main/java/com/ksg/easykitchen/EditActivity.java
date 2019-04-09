@@ -1,5 +1,7 @@
 package com.ksg.easykitchen;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
@@ -63,6 +65,24 @@ public class EditActivity extends AppCompatActivity {
             object to the arraylist*/
             productsArrayList.add(products);
 
+
+        }
+
+        if(productsArrayList.size()==0){
+            AlertDialog alertDialog = new AlertDialog.Builder(EditActivity.this).create();
+            alertDialog.setTitle("No Products to Edit!");
+            alertDialog.setMessage("Please add some products to edit. ");
+            alertDialog.setCanceledOnTouchOutside(false);
+            alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            /*final Intent x =new Intent(EditActivity.this, Home.class);
+                            startActivity(x);*/
+                            finish();
+                        }
+                    });
+            alertDialog.show();
+            alertDialog.getButton(AlertDialog.BUTTON_NEUTRAL).setTextColor(getResources().getColor(R.color.colorAccent1));
         }
     }
 

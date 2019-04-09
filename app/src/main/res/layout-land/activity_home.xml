@@ -44,14 +44,14 @@
                         android:gravity="center_horizontal"
                         android:text="Add"
                         android:layout_weight="1"
-                        android:textSize="22dp"
+                        android:textSize="18dp"
                         />
 
                     <ImageView
-                        android:layout_width="110dp"
-                        android:layout_height="110dp"
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/addicon"
+                        android:src="@drawable/add"
                         android:layout_weight="2"/>
                 </LinearLayout>
             </android.support.v7.widget.CardView>
@@ -80,12 +80,12 @@
                         android:gravity="center_horizontal"
                         android:text="Edit"
                         android:layout_weight="1"
-                        android:textSize="22dp"
+                        android:textSize="18dp"
                         />
 
                     <ImageView
-                        android:layout_width="110dp"
-                        android:layout_height="110dp"
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
                         android:layout_gravity="center"
                         android:src="@drawable/edit"
                         android:layout_weight="2"/>
@@ -117,14 +117,14 @@
                         android:gravity="center_horizontal"
                         android:text="All Products"
                         android:layout_weight="1"
-                        android:textSize="22dp"
+                        android:textSize="18dp"
                         />
 
                     <ImageView
-                        android:layout_width="110dp"
-                        android:layout_height="110dp"
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/listicon"
+                        android:src="@drawable/list"
                         android:layout_weight="2"/>
                 </LinearLayout>
 
@@ -163,12 +163,12 @@
                         android:gravity="center_horizontal"
                         android:text="Kitchen products"
                         android:layout_weight="1"
-                        android:textSize="22dp"
+                        android:textSize="18dp"
                         />
 
                     <ImageView
-                        android:layout_width="110dp"
-                        android:layout_height="110dp"
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
                         android:layout_gravity="center"
                         android:src="@drawable/available"
                         android:layout_weight="2"/>
@@ -200,11 +200,11 @@
                         android:gravity="center_horizontal"
                         android:text="Search"
                         android:textColor="@color/colorAccent"
-                        android:textSize="22dp" />
+                        android:textSize="18dp" />
 
                     <ImageView
-                        android:layout_width="110dp"
-                        android:layout_height="110dp"
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
                         android:layout_gravity="center"
                         android:layout_weight="2"
                         android:src="@drawable/search" />
@@ -237,12 +237,12 @@
                         android:gravity="center_horizontal"
                         android:text="Recipies"
                         android:layout_weight="1"
-                        android:textSize="22dp"
+                        android:textSize="18dp"
                         />
 
                     <ImageView
-                        android:layout_width="110dp"
-                        android:layout_height="110dp"
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
                         android:layout_gravity="center"
                         android:src="@drawable/recipe"
                         android:layout_weight="2"/>

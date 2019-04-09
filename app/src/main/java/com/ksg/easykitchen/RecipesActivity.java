@@ -129,5 +129,21 @@ public class RecipesActivity extends AppCompatActivity {
             object to the arraylist*/
             productsArrayList.add(products);
         }
+        if(productsArrayList.size()==0){
+            AlertDialog alertDialog = new AlertDialog.Builder(RecipesActivity.this).create();
+            alertDialog.setTitle("No products!");
+            alertDialog.setMessage("Please add some products to generate Recipes. ");
+            alertDialog.setCanceledOnTouchOutside(false);
+            alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            final Intent x = new Intent(RecipesActivity.this, Home.class);
+                            startActivity(x);
+                            finish();
+                        }
+                    });
+            alertDialog.show();
+            alertDialog.getButton(AlertDialog.BUTTON_NEUTRAL).setTextColor(getResources().getColor(R.color.colorAccent1));
+        }
     }
 }

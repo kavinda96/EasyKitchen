@@ -6,6 +6,7 @@ import android.os.AsyncTask;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+
 import com.ksg.easykitchen.adapters.RecipeListAdapter;
 import com.ksg.easykitchen.model.Recipe;
 

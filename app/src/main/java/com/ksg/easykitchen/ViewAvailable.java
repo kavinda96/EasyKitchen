@@ -1,5 +1,7 @@
 package com.ksg.easykitchen;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -75,6 +77,20 @@ public class ViewAvailable extends AppCompatActivity {
             products.setPrice(cursor.getDouble(4));
             products.setIsAvailable(cursor.getInt(5));
             productsArrayList.add(products);
+        }
+        if(productsArrayList.size()==0){
+            AlertDialog alertDialog = new AlertDialog.Builder(ViewAvailable.this).create();
+            alertDialog.setTitle("No Products !");
+            alertDialog.setMessage("Please add some products to kitchen. ");
+            alertDialog.setCanceledOnTouchOutside(false);
+            alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            finish();
+                        }
+                    });
+            alertDialog.show();
+            alertDialog.getButton(AlertDialog.BUTTON_NEUTRAL).setTextColor(getResources().getColor(R.color.colorAccent1));
         }
     }
 }
